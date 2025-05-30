@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-sand-50 text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .article-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-sand-200 dark:border-gray-700;
+  }
+  
+  .article-title {
+    @apply text-2xl font-title text-terracotta-600 dark:text-terracotta-400 group-hover:text-terracotta-700 dark:group-hover:text-terracotta-300 transition-colors duration-300 mb-2;
+  }
+  
+  .article-date {
+    @apply text-sm text-desert-600 dark:text-desert-400 mb-4 font-content;
+  }
+  
+  .article-excerpt {
+    @apply text-gray-600 dark:text-gray-300 font-content leading-relaxed;
+  }
+  
+  .back-link {
+    @apply inline-flex items-center text-desert-600 dark:text-desert-400 hover:text-desert-700 dark:hover:text-desert-300 transition-colors duration-300 mb-8 font-content;
+  }
+}

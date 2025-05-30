@@ -1,0 +1,186 @@
+/* Markdown 内容样式 */
+.markdown-content {
+  color: #1a1a1a;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.dark .markdown-content {
+  color: #e5e5e5;
+}
+
+/* 覆盖 Tailwind 的 prose 样式 */
+.prose-override {
+  max-width: none !important;
+}
+
+.prose-override h1,
+.prose-override h2,
+.prose-override h3,
+.prose-override h4,
+.prose-override h5,
+.prose-override h6 {
+  font-family: 'ZCOOL KuaiLe', system-ui, -apple-system, sans-serif !important;
+  margin-top: 2em !important;
+  margin-bottom: 1em !important;
+  color: #c4634d !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.3 !important;
+}
+
+.dark .prose-override h1,
+.dark .prose-override h2,
+.dark .prose-override h3,
+.dark .prose-override h4,
+.dark .prose-override h5,
+.dark .prose-override h6 {
+  color: #e6927d !important;
+}
+
+.prose-override h1 { 
+  font-size: 2.5em !important; 
+  border-bottom: 2px solid #c4634d !important;
+  padding-bottom: 0.3em !important;
+}
+
+.prose-override h2 { 
+  font-size: 2em !important; 
+  border-bottom: 1px solid #c4634d !important;
+  padding-bottom: 0.2em !important;
+}
+
+.prose-override h3 { font-size: 1.75em !important; }
+.prose-override h4 { font-size: 1.5em !important; }
+.prose-override h5 { font-size: 1.25em !important; }
+.prose-override h6 { font-size: 1em !important; }
+
+.prose-override p {
+  margin-bottom: 1.5em !important;
+  font-family: 'Ma Shan Zheng', system-ui, -apple-system, sans-serif !important;
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  margin-top: 1em !important;
+}
+
+.prose-override ul,
+.prose-override ol {
+  margin-bottom: 1.5em !important;
+  padding-left: 2em !important;
+  font-family: 'Ma Shan Zheng', system-ui, -apple-system, sans-serif !important;
+  font-size: 1.2em !important;
+  margin-top: 1em !important;
+}
+
+.prose-override li {
+  margin-bottom: 0.5em !important;
+  line-height: 1.8 !important;
+}
+
+.prose-override blockquote {
+  border-left: 4px solid #c4634d !important;
+  padding: 1em 1.5em !important;
+  margin: 1.5em 0 !important;
+  background-color: #f8f8f8 !important;
+  border-radius: 0 4px 4px 0 !important;
+  font-family: 'Ma Shan Zheng', system-ui, -apple-system, sans-serif !important;
+  font-size: 1.1em !important;
+  color: #666 !important;
+  font-style: italic !important;
+}
+
+.dark .prose-override blockquote {
+  border-left-color: #e6927d !important;
+  background-color: #2a2a2a !important;
+  color: #999 !important;
+}
+
+.prose-override code {
+  background-color: #f5f5f5 !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 3px !important;
+  font-family: monospace !important;
+  font-size: 0.9em !important;
+}
+
+.dark .prose-override code {
+  background-color: #2d2d2d !important;
+}
+
+.prose-override pre {
+  background-color: #f5f5f5 !important;
+  padding: 1em !important;
+  border-radius: 5px !important;
+  overflow-x: auto !important;
+  margin: 1.5em 0 !important;
+}
+
+.dark .prose-override pre {
+  background-color: #2d2d2d !important;
+}
+
+.prose-override pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.prose-override img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 5px !important;
+  margin: 1.5em 0 !important;
+}
+
+.prose-override a {
+  color: #c4634d !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: border-color 0.2s !important;
+}
+
+.dark .prose-override a {
+  color: #e6927d !important;
+}
+
+.prose-override a:hover {
+  border-bottom-color: currentColor !important;
+}
+
+.prose-override hr {
+  border: none !important;
+  border-top: 2px solid #eee !important;
+  margin: 2em 0 !important;
+}
+
+.dark .prose-override hr {
+  border-top-color: #333 !important;
+}
+
+/* 表格样式 */
+.prose-override table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.5em 0 !important;
+}
+
+.prose-override th,
+.prose-override td {
+  padding: 0.75em !important;
+  border: 1px solid #ddd !important;
+  text-align: left !important;
+}
+
+.dark .prose-override th,
+.dark .prose-override td {
+  border-color: #333 !important;
+}
+
+.prose-override th {
+  background-color: #f5f5f5 !important;
+  font-weight: bold !important;
+}
+
+.dark .prose-override th {
+  background-color: #2d2d2d !important;
+} 

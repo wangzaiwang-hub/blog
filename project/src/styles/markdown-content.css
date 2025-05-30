@@ -1,0 +1,160 @@
+/* Markdown 内容的自定义样式 */
+.article-content {
+  @apply text-gray-800 dark:text-gray-200 
+         leading-relaxed tracking-wide 
+         font-content text-base;
+}
+
+/* 标题样式 - 层次分明且富有层次感 */
+.article-content h1 {
+  @apply text-4xl font-bold text-terracotta-600 dark:text-terracotta-400 
+         mb-6 pb-3 border-b-4 border-terracotta-300 
+         relative pl-6 
+         before:absolute before:left-0 before:top-0 
+         before:w-4 before:h-full 
+         before:bg-terracotta-500;
+}
+
+.article-content h2 {
+  @apply text-3xl font-semibold text-terracotta-600 dark:text-terracotta-400 
+         mb-5 pb-2 border-b-2 border-terracotta-300 
+         relative pl-4 
+         before:absolute before:left-0 before:top-0 
+         before:w-3 before:h-full 
+         before:bg-terracotta-500;
+}
+
+.article-content h3 {
+  @apply text-2xl font-semibold text-terracotta-500 dark:text-terracotta-300 
+         mb-4 pb-1 border-b border-terracotta-200 
+         relative pl-3 
+         before:absolute before:left-0 before:top-0 
+         before:w-2 before:h-full 
+         before:bg-terracotta-400;
+}
+
+.article-content h4 {
+  @apply text-xl font-medium text-terracotta-500 dark:text-terracotta-300 
+         mb-3 
+         relative pl-2 
+         before:absolute before:left-0 before:top-2 
+         before:w-1.5 before:h-1.5 
+         before:bg-terracotta-400 before:rounded-full;
+}
+
+.article-content h5 {
+  @apply text-lg font-medium text-terracotta-400 dark:text-terracotta-200 
+         mb-2;
+}
+
+.article-content h6 {
+  @apply text-base font-medium text-terracotta-300 dark:text-terracotta-100 
+         mb-2;
+}
+
+/* 段落样式 */
+.article-content p {
+  @apply mb-4 leading-relaxed text-base 
+         first-letter:text-3xl first-letter:font-bold 
+         first-letter:text-terracotta-500 
+         first-letter:mr-2 first-letter:float-left;
+}
+
+/* 列表样式 */
+.article-content ul,
+.article-content ol {
+  @apply pl-6 mb-4 space-y-2;
+}
+
+.article-content li {
+  @apply relative pl-4 
+         before:absolute before:left-0 before:top-2 
+         before:w-2 before:h-2 
+         before:bg-terracotta-500 before:rounded-full;
+}
+
+/* 引用块样式 */
+.article-content blockquote {
+  @apply border-l-4 border-terracotta-400 
+         pl-4 py-2 my-4 
+         bg-sand-50 dark:bg-gray-800 
+         italic text-gray-600 dark:text-gray-300 
+         relative 
+         before:content-['"'] before:absolute before:-left-4 
+         before:top-0 before:text-4xl before:text-terracotta-500 
+         before:opacity-50;
+}
+
+/* 代码样式 */
+.article-content code {
+  @apply bg-sand-100 dark:bg-gray-700 
+         text-terracotta-600 dark:text-terracotta-300 
+         px-1.5 py-0.5 rounded-md text-sm 
+         font-mono;
+}
+
+.article-content pre {
+  @apply bg-sand-50 dark:bg-gray-800 
+         p-4 rounded-lg my-4 
+         overflow-x-auto 
+         border border-sand-200 dark:border-gray-700 
+         shadow-md;
+}
+
+.article-content pre code {
+  @apply bg-transparent p-0 text-base;
+}
+
+/* 链接样式 */
+.article-content a {
+  @apply text-terracotta-600 dark:text-terracotta-400 
+         hover:text-terracotta-700 dark:hover:text-terracotta-300 
+         transition-colors duration-300 
+         border-b-2 border-transparent 
+         hover:border-terracotta-500;
+}
+
+/* 图片样式 */
+.article-content img {
+  @apply max-w-full rounded-lg my-4 
+         shadow-md hover:shadow-xl 
+         transition-shadow duration-300;
+}
+
+/* 水平线样式 */
+.article-content hr {
+  @apply my-6 border-t-2 border-terracotta-200 
+         dark:border-terracotta-700 
+         opacity-50;
+}
+
+/* 表格样式 */
+.article-content table {
+  @apply w-full mb-4 border-collapse 
+         shadow-md rounded-lg overflow-hidden;
+}
+
+.article-content table th,
+.article-content table td {
+  @apply border border-sand-200 dark:border-gray-700 
+         px-4 py-2 text-left;
+}
+
+.article-content table thead {
+  @apply bg-terracotta-50 dark:bg-gray-800 
+         text-terracotta-600 dark:text-terracotta-400 
+         font-bold;
+}
+
+.article-content table tbody tr:nth-child(even) {
+  @apply bg-sand-100 dark:bg-gray-700;
+}
+
+/* 强调和其他特殊样式 */
+.article-content strong {
+  @apply font-bold text-terracotta-600 dark:text-terracotta-400;
+}
+
+.article-content em {
+  @apply italic text-terracotta-500 dark:text-terracotta-300;
+} 
