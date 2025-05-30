@@ -19,7 +19,12 @@ export async function getArticles(): Promise<StaticArticle[]> {
   console.log('[articles.ts] getArticles called');
   try {
   const articleModules = import.meta.glob('/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
-  console.log('[articles.ts] articleModules loaded:', articleModules);
+  console.log('[articles.ts] articleModules loaded (raw object):', articleModules);
+  console.log('[articles.ts] Number of modules found by glob:', Object.keys(articleModules).length);
+  if (Object.keys(articleModules).length === 0) {
+    console.warn('[articles.ts] import.meta.glob found 0 modules. Expected path: /markdown_files/**/*.md relative to project root.');
+  }
+  console.log('[articles.ts] Module keys found by glob:', JSON.stringify(Object.keys(articleModules)));
   const articles: StaticArticle[] = [];
 
   for (const filePath in articleModules) {
