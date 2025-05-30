@@ -4,50 +4,33 @@ import { motion } from 'framer-motion';
 import Layout from '../components/layout/Layout';
 import ArticleList from '../components/article/ArticleList';
 import CategoryList from '../components/article/CategoryList';
-import { supabase } from '../lib/supabase';
+// import { supabase } from '../lib/supabase';
 import { Book } from 'lucide-react';
 
 const ArticlesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const categorySlug = searchParams.get('category');
   const tagSlug = searchParams.get('tag');
-  const [categoryId, setCategoryId] = React.useState<string | undefined>(undefined);
-  const [tagId, setTagId] = React.useState<string | undefined>(undefined);
-  const [loading, setLoading] = React.useState(true);
+
+
 
   React.useEffect(() => {
     const fetchFilters = async () => {
-      setLoading(true);
+      // setLoading(true);
       
       if (categorySlug) {
-        const { data } = await supabase
-          .from('categories')
-          .select('id')
-          .eq('slug', categorySlug)
-          .single();
-          
-        if (data) {
-          setCategoryId(data.id);
-        }
+        // Logic for handling categorySlug can be re-added here if needed for static filtering
       } else {
-        setCategoryId(undefined);
+        // Logic for no categorySlug
       }
       
       if (tagSlug) {
-        const { data } = await supabase
-          .from('tags')
-          .select('id')
-          .eq('slug', tagSlug)
-          .single();
-          
-        if (data) {
-          setTagId(data.id);
-        }
+        // Logic for handling tagSlug can be re-added here if needed for static filtering
       } else {
-        setTagId(undefined);
+        // Logic for no tagSlug
       }
       
-      setLoading(false);
+      // setLoading(false);
     };
     
     fetchFilters();
@@ -85,10 +68,7 @@ const ArticlesPage: React.FC = () => {
         >
           <CategoryList />
           
-          <ArticleList 
-            categoryId={categoryId} 
-            tagId={tagId} 
-          />
+          <ArticleList />
         </motion.div>
       </div>
     </Layout>
