@@ -18,7 +18,7 @@ function generateSlug(name: string): string {
 export async function getArticles(): Promise<StaticArticle[]> {
   console.log('[articles.ts] getArticles called');
   try {
-  const articleModules = import.meta.glob('/src/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+  const articleModules = import.meta.glob('/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
   console.log('[articles.ts] articleModules loaded:', articleModules);
   const articles: StaticArticle[] = [];
 
@@ -44,7 +44,7 @@ export async function getArticles(): Promise<StaticArticle[]> {
     // 从文件路径中提取 slug
     // 例如 /public/articles/my-post.md -> my-post
     const slug = filePath
-      .replace('/src/markdown_files/', '')
+      .replace('/markdown_files/', '')
       .replace(/\.md$/, '');
 
     if (!frontmatter.title || !frontmatter.date) {
