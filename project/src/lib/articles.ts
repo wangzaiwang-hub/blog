@@ -18,11 +18,84 @@ function generateSlug(name: string): string {
 export async function getArticles(): Promise<StaticArticle[]> {
   console.log('[articles.ts] getArticles called');
   try {
-  const articleModules = import.meta.glob('/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+  // 修改文件路径解析，使用字面量而不是变量路径
+  let articleModules: Record<string, any> = {};
+  
+  // 分别尝试不同的路径格式，使用字面量
+  try {
+    const modulesPath1 = import.meta.glob('../public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+    if (Object.keys(modulesPath1).length > 0) {
+      console.log(`[articles.ts] 成功使用路径 '../public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath1).length} 个文件`);
+      articleModules = { ...articleModules, ...modulesPath1 };
+    }
+  } catch (e) {
+    console.warn(`[articles.ts] 使用路径 '../public/markdown_files/**/*.md' 查找文件失败:`, e);
+  }
+  
+  try {
+    const modulesPath2 = import.meta.glob('../../public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+    if (Object.keys(modulesPath2).length > 0) {
+      console.log(`[articles.ts] 成功使用路径 '../../public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath2).length} 个文件`);
+      // 避免添加可能重复的文件
+      const newFiles = Object.keys(modulesPath2).filter(path => {
+        // 提取文件名部分以进行比较
+        const fileName = path.split('/').pop();
+        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
+      });
+      
+      // 仅添加非重复的文件
+      newFiles.forEach(path => {
+        articleModules[path] = modulesPath2[path];
+      });
+    }
+  } catch (e) {
+    console.warn(`[articles.ts] 使用路径 '../../public/markdown_files/**/*.md' 查找文件失败:`, e);
+  }
+  
+  try {
+    const modulesPath3 = import.meta.glob('/public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+    if (Object.keys(modulesPath3).length > 0) {
+      console.log(`[articles.ts] 成功使用路径 '/public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath3).length} 个文件`);
+      // 避免添加可能重复的文件
+      const newFiles = Object.keys(modulesPath3).filter(path => {
+        // 提取文件名部分以进行比较
+        const fileName = path.split('/').pop();
+        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
+      });
+      
+      // 仅添加非重复的文件
+      newFiles.forEach(path => {
+        articleModules[path] = modulesPath3[path];
+      });
+    }
+  } catch (e) {
+    console.warn(`[articles.ts] 使用路径 '/public/markdown_files/**/*.md' 查找文件失败:`, e);
+  }
+  
+  try {
+    const modulesPath4 = import.meta.glob('/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
+    if (Object.keys(modulesPath4).length > 0) {
+      console.log(`[articles.ts] 成功使用路径 '/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath4).length} 个文件`);
+      // 避免添加可能重复的文件
+      const newFiles = Object.keys(modulesPath4).filter(path => {
+        // 提取文件名部分以进行比较
+        const fileName = path.split('/').pop();
+        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
+      });
+      
+      // 仅添加非重复的文件
+      newFiles.forEach(path => {
+        articleModules[path] = modulesPath4[path];
+      });
+    }
+  } catch (e) {
+    console.warn(`[articles.ts] 使用路径 '/markdown_files/**/*.md' 查找文件失败:`, e);
+  }
+  
   console.log('[articles.ts] articleModules loaded (raw object):', articleModules);
   console.log('[articles.ts] Number of modules found by glob:', Object.keys(articleModules).length);
   if (Object.keys(articleModules).length === 0) {
-    console.warn('[articles.ts] import.meta.glob found 0 modules. Expected path: /markdown_files/**/*.md relative to project root.');
+    console.warn('[articles.ts] import.meta.glob found 0 modules. 尝试了多种路径但都失败了。');
   }
   console.log('[articles.ts] Module keys found by glob:', JSON.stringify(Object.keys(articleModules)));
   const articles: StaticArticle[] = [];
@@ -47,10 +120,19 @@ export async function getArticles(): Promise<StaticArticle[]> {
     }
 
     // 从文件路径中提取 slug
-    // 例如 /public/articles/my-post.md -> my-post
-    const slug = filePath
-      .replace('/markdown_files/', '')
-      .replace(/\.md$/, '');
+    // 处理不同路径格式的文件名提取
+    let slug = '';
+    if (filePath.includes('/markdown_files/')) {
+      // 提取最后的路径部分，去掉.md扩展名
+      slug = filePath
+        .split('/markdown_files/')[1]
+        .replace(/\.md$/, '');
+    } else {
+      // 如果路径不包含预期格式，提取文件名作为备用
+      slug = filePath
+        .split('/').pop() || ''
+        .replace(/\.md$/, '');
+    }
 
     if (!frontmatter.title || !frontmatter.date) {
       console.warn(`Skipping ${filePath} due to missing title or date in frontmatter.`);
