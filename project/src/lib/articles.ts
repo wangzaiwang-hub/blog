@@ -12,208 +12,334 @@ function generateSlug(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
 } // Module-level variable for one-time logging
 
-// 移除硬编码的 ARTICLES 数组
-// export const ARTICLES: StaticArticle[] = [ ... ];
+// 硬编码文章数据，避免解析Markdown文件
+const HARDCODED_ARTICLES: StaticArticle[] = [
+  {
+    slug: "about-desert-theme",
+    title: "沙漠主题设计说明",
+    excerpt: "介绍这个博客系统的沙漠主题设计理念，包括配色方案、字体选择和整体布局的考虑。",
+    date: "2025-03-21",
+    formattedDate: "2025-03-21",
+    tags: ["设计", "主题", "UI/UX"],
+    categories: [
+      { id: "design", name: "设计", slug: "design", description: "", article_count: 1 }
+    ],
+    content: `# 沙漠主题设计说明
+
+在设计这个博客主题时，我希望能够营造出一种独特的沙漠氛围，同时保持良好的可读性和现代感。
+
+## 配色方案
+
+主题的配色方案主要包括：
+
+- 沙漠色系：温暖的米色和沙褐色
+- 赤陶色：作为强调色，体现沙漠中的生命力
+- 暗色模式：深灰色调，模拟夜晚的沙漠
+
+## 字体选择
+
+- 标题：使用 ZCOOL KuaiLe，活泼而不失优雅
+- 正文：选用 Ma Shan Zheng，提供良好的可读性
+
+## 响应式设计
+
+主题采用移动优先的响应式设计，在不同设备上都能提供良好的阅读体验：
+
+- 移动端：单列布局，重点突出内容
+- 平板：优化间距和字体大小
+- 桌面端：双列布局，充分利用屏幕空间
+
+## 交互细节
+
+- 平滑的暗色模式切换
+- 文章卡片的悬停效果
+- 加载动画和过渡效果
+
+这些设计元素共同营造出一个独特而舒适的阅读环境。`
+  },
+  {
+    slug: "hello-world",
+    title: "你好，世界！",
+    excerpt: "这是我的第一篇博客文章，介绍了这个博客系统支持的一些基本功能和 Markdown 语法。",
+    date: "2025-03-20",
+    formattedDate: "2025-03-20",
+    tags: ["博客", "介绍"],
+    categories: [
+      { id: "blog", name: "博客", slug: "blog", description: "", article_count: 1 }
+    ],
+    content: `# 欢迎来到我的博客
+
+这是我的第一篇博客文章。在这里，我将分享我的想法和经验。
+
+## Markdown 支持
+
+这个博客系统支持完整的 Markdown 语法：
+
+### 列表示例
+
+- 项目 1
+- 项目 2
+- 项目 3
+
+### 代码示例
+
+\`\`\`javascript
+function hello() {
+  console.log("你好，世界！");
+}
+\`\`\`
+
+### 引用示例
+
+> 这是一段引用文本。
+> 
+> -- 某人说
+
+## 结语
+
+感谢访问我的博客！`
+  },
+  {
+    slug: "static-blog-migration",
+    title: "从动态到静态：博客系统的演进",
+    excerpt: "记录将博客系统从 Supabase 迁移到静态 Markdown 文件的过程，以及这个决策背后的思考。",
+    date: "2025-03-24",
+    formattedDate: "2025-03-24",
+    tags: ["技术", "重构", "Next.js", "Markdown"],
+    categories: [
+      { id: "tech", name: "技术", slug: "tech", description: "", article_count: 1 }
+    ],
+    content: `# 从动态到静态：博客系统的演进
+
+最初，这个博客系统是基于 Supabase 构建的，使用了其数据库和认证功能。随着时间的推移，我发现一个静态的解决方案更符合我的需求。
+
+## 为什么选择静态方案？
+
+- **简化部署**：静态博客可以轻松部署到任何静态托管服务
+- **更好的性能**：无需数据库查询，页面加载更快
+- **更低的维护成本**：不需要担心数据库维护和安全更新
+- **版本控制**：所有内容都可以通过 Git 进行版本控制
+
+## 迁移过程
+
+迁移过程包括：
+
+1. 将数据库中的文章导出为 Markdown 文件
+2. 调整路由和渲染逻辑以支持静态内容
+3. 添加 frontmatter 解析功能
+4. 优化构建过程
+
+## 面临的挑战
+
+迁移过程中遇到了一些挑战：
+
+- 确保 URL 结构保持一致，避免链接失效
+- 维护原有的标签和分类功能
+- 在静态环境中实现搜索功能
+
+## 未来改进
+
+未来计划添加的功能：
+
+- 基于静态文件的搜索功能
+- 评论系统（可能使用第三方解决方案）
+- 更好的图片优化
+
+这次迁移使博客系统变得更加简单和高效。`
+  },
+  {
+    slug: "wetools-introduction",
+    title: "WETools: 效率与创意的数字工具集",
+    excerpt: "探索 WETools，一个集合全球免费高效工具的平台，助力提升工作流和数字生活体验。",
+    date: "2025-04-25",
+    formattedDate: "2025-04-25",
+    tags: ["项目", "工具", "效率", "开发"],
+    categories: [
+      { id: "project", name: "项目", slug: "project", description: "", article_count: 1 }
+    ],
+    content: `# WETools: 效率与创意的数字工具集
+
+## 项目简介
+
+WE Tools 是我开发的一个集合了全球免费高效工具的平台。这个项目旨在为用户提供一个一站式的工具集合，涵盖办公效率、设计创意、开发编程等多个领域。
+
+## 核心特点
+
+- **多样化工具集**：目前收集了超过 100 种不同类型的工具
+- **分类清晰**：工具按功能和使用场景进行分类，易于查找
+- **无需注册**：大多数工具无需注册即可使用
+- **响应式设计**：在手机和桌面设备上都能获得良好体验
+- **定期更新**：不断增加新工具，淘汰过时工具
+
+## 技术实现
+
+WE Tools 采用了现代化的技术栈：
+
+\`\`\`javascript
+// 前端技术栈
+const frontendStack = {
+  framework: 'React',
+  styling: 'Tailwind CSS',
+  stateManagement: 'React Context + Hooks',
+  routing: 'React Router'
+};
+
+// 后端技术栈
+const backendStack = {
+  storage: 'Supabase',
+  deployment: 'Vercel'
+};
+\`\`\`
+
+## 用户反馈
+
+自发布以来，WE Tools 收到了许多积极的反馈：
+
+> "这个工具集帮我节省了大量寻找合适工具的时间！" - 某用户反馈
+
+## 未来规划
+
+未来，我计划为 WE Tools 添加更多功能：
+
+- 个性化推荐系统
+- 工具使用统计和分析
+- 社区贡献和评分系统
+- 更多本地化内容
+
+欢迎访问 [WE Tools](https://wetools.wctw.fun) 探索更多实用工具！`
+  },
+  {
+    slug: "tomydear-onlinestudy-website",
+    title: "给我女朋友做的一个在线学习网站",
+    excerpt: "用Ai半个小时做的，女朋友说很好用，我也很开心",
+    date: "2025-06-03",
+    formattedDate: "2025-06-03",
+    tags: ["cursor", "cozi", "TypeScript", "学习"],
+    categories: [
+      { id: "project", name: "项目", slug: "project", description: "", article_count: 1 }
+    ],
+    content: `# 为她而做 - 给女友的专属学习平台
+
+![学习平台封面](https://source.unsplash.com/random/1200x600/?study,love)
+
+## 🌟 项目初衷
+
+这是一个我专为女友打造的移动端刷题系统，源于对她学习的支持与鼓励。看着她为考试备战的辛苦，我决定运用我的编程技能，为她创造一个个性化、高效的学习工具。
+
+## 📱 主要功能
+
+### 多样化学习模式
+- **顺序模式**：按照预设顺序进行题目练习
+- **随机模式**：随机抽取题目，增加学习的挑战性
+- **复习模式**：重点复习曾经错误的题目，强化记忆
+
+### 个性化学习体验
+- **进度追踪**：实时记录学习进度，随时可以继续上次的学习
+- **错题收集**：自动收集错题，便于集中复习
+- **成绩统计**：直观展示学习成果，帮助找出需要加强的知识点
+
+## 💻 技术实现
+
+本项目采用现代前端技术栈构建：
+- **TypeScript**：提供类型安全的开发体验，减少运行时错误
+- **React**：构建用户界面的核心库
+- **Vite**：提供极速的开发体验和高效的构建过程
+- **Tailwind CSS**：实现快速、响应式的UI设计
+
+## 🛠️ 开发工具
+
+在开发过程中，我主要使用了两款强大的工具：
+- **Cursor**：AI辅助编程工具，大大提高了编码效率和代码质量
+- **Cozi**：帮助管理项目进度和任务分配，确保项目按计划完成
+
+## 🚀 专为她设计的功能
+
+在设计这个平台时，我特别考虑了她的学习习惯和需求：
+1. **个性化学习路径**：根据她的学习进度和薄弱环节调整题目难度
+2. **温馨提醒功能**：设置学习提醒，帮助她保持学习动力
+3. **成就系统**：完成学习目标后的小奖励，增添学习乐趣
+4. **简洁界面**：减少干扰，专注于学习内容
+
+## 📚 为爱定制的内容
+
+根据她的专业和学习需求，我精心准备了以下内容：
+- **毛泽东思想和中国特色社会主义理论体系概论**：她当前学期的重点科目
+- **个性化错题集**：自动收集她做错的题目，方便复习
+- **学习笔记功能**：可以添加自己的理解和记忆方法
+
+## 🔮 我们的未来计划
+
+随着她学习需求的变化，这个平台也将不断成长：
+- **添加更多她感兴趣的学科**：随着学习进展扩展内容
+- **共同学习功能**：创建我们可以一起学习的模块
+- **考试倒计时**：为重要考试提供倒计时提醒
+- **学习数据分析**：帮助她了解自己的学习模式和进步
+
+## 💌 爱的寄语
+
+亲爱的，这个平台承载着我对你学习的支持和对你的爱。希望它能在你备考的日子里，成为你的得力助手。
+
+每当你在这里学习，都是我们共同成长的时刻。无论考试结果如何，我都为你的努力和坚持感到骄傲。
+
+愿这份小小的心意，能照亮你的学习之路，也让你感受到我的陪伴。
+
+`
+  }
+];
+
+// 当用户要添加新文章时，只需在上面的数组中添加一个新对象
+// 例如:
+/*
+  {
+    slug: "your-new-article-slug",
+    title: "你的新文章标题",
+    excerpt: "文章摘要",
+    date: "2024-04-01",
+    formattedDate: "2024-04-01",
+    tags: ["标签1", "标签2"],
+    categories: [
+      { id: "category-id", name: "分类名称", slug: "category-slug", description: "", article_count: 1 }
+    ],
+    content: `# 你的新文章标题
+
+正文内容，支持Markdown语法...
+
+## 小标题
+
+- 列表项目
+- 另一个列表项目
+
+\`\`\`javascript
+// 代码示例
+console.log("示例代码");
+\`\`\`
+
+更多内容...`
+  }
+*/
+
+let LOADED_ARTICLES: StaticArticle[] = [];
 
 export async function getArticles(): Promise<StaticArticle[]> {
   console.log('[articles.ts] getArticles called');
   try {
-  // 修改文件路径解析，使用字面量而不是变量路径
-  let articleModules: Record<string, any> = {};
-  
-  // 分别尝试不同的路径格式，使用字面量
-  try {
-    const modulesPath1 = import.meta.glob('../public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
-    if (Object.keys(modulesPath1).length > 0) {
-      console.log(`[articles.ts] 成功使用路径 '../public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath1).length} 个文件`);
-      articleModules = { ...articleModules, ...modulesPath1 };
-    }
-  } catch (e) {
-    console.warn(`[articles.ts] 使用路径 '../public/markdown_files/**/*.md' 查找文件失败:`, e);
-  }
-  
-  try {
-    const modulesPath2 = import.meta.glob('../../public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
-    if (Object.keys(modulesPath2).length > 0) {
-      console.log(`[articles.ts] 成功使用路径 '../../public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath2).length} 个文件`);
-      // 避免添加可能重复的文件
-      const newFiles = Object.keys(modulesPath2).filter(path => {
-        // 提取文件名部分以进行比较
-        const fileName = path.split('/').pop();
-        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
-      });
-      
-      // 仅添加非重复的文件
-      newFiles.forEach(path => {
-        articleModules[path] = modulesPath2[path];
-      });
-    }
-  } catch (e) {
-    console.warn(`[articles.ts] 使用路径 '../../public/markdown_files/**/*.md' 查找文件失败:`, e);
-  }
-  
-  try {
-    const modulesPath3 = import.meta.glob('/public/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
-    if (Object.keys(modulesPath3).length > 0) {
-      console.log(`[articles.ts] 成功使用路径 '/public/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath3).length} 个文件`);
-      // 避免添加可能重复的文件
-      const newFiles = Object.keys(modulesPath3).filter(path => {
-        // 提取文件名部分以进行比较
-        const fileName = path.split('/').pop();
-        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
-      });
-      
-      // 仅添加非重复的文件
-      newFiles.forEach(path => {
-        articleModules[path] = modulesPath3[path];
-      });
-    }
-  } catch (e) {
-    console.warn(`[articles.ts] 使用路径 '/public/markdown_files/**/*.md' 查找文件失败:`, e);
-  }
-  
-  try {
-    const modulesPath4 = import.meta.glob('/markdown_files/**/*.md', { eager: true, query: '?raw', import: 'default' });
-    if (Object.keys(modulesPath4).length > 0) {
-      console.log(`[articles.ts] 成功使用路径 '/markdown_files/**/*.md' 找到 ${Object.keys(modulesPath4).length} 个文件`);
-      // 避免添加可能重复的文件
-      const newFiles = Object.keys(modulesPath4).filter(path => {
-        // 提取文件名部分以进行比较
-        const fileName = path.split('/').pop();
-        return !Object.keys(articleModules).some(existingPath => existingPath.split('/').pop() === fileName);
-      });
-      
-      // 仅添加非重复的文件
-      newFiles.forEach(path => {
-        articleModules[path] = modulesPath4[path];
-      });
-    }
-  } catch (e) {
-    console.warn(`[articles.ts] 使用路径 '/markdown_files/**/*.md' 查找文件失败:`, e);
-  }
-  
-  console.log('[articles.ts] articleModules loaded (raw object):', articleModules);
-  console.log('[articles.ts] Number of modules found by glob:', Object.keys(articleModules).length);
-  if (Object.keys(articleModules).length === 0) {
-    console.warn('[articles.ts] import.meta.glob found 0 modules. 尝试了多种路径但都失败了。');
-  }
-  console.log('[articles.ts] Module keys found by glob:', JSON.stringify(Object.keys(articleModules)));
-  const articles: StaticArticle[] = [];
-
-  for (const filePath in articleModules) {
-    const rawContent = articleModules[filePath] as string;
-    let frontmatter, markdownContent;
-    try {
-      // Log raw content for the first file encountered for brevity in logs
-      if (!hasLoggedRawContent) {
-        console.log(`[articles.ts] Raw content for ${filePath}:\n`, rawContent);
-        hasLoggedRawContent = true;
-      }
-      const parsed = matter(rawContent);
-      frontmatter = parsed.data;
-      markdownContent = parsed.content;
-    } catch (e) {
-      console.error(`[articles.ts] Error parsing frontmatter for ${filePath}:`, e, JSON.stringify(e, Object.getOwnPropertyNames(e)));
-      // If you want to log rawContent for each error, reset here, but it can be very verbose.
-      // hasLoggedRawContent = false;
-      continue; // Skip this file
-    }
-
-    // 从文件路径中提取 slug
-    // 处理不同路径格式的文件名提取
-    let slug = '';
-    if (filePath.includes('/markdown_files/')) {
-      // 提取最后的路径部分，去掉.md扩展名
-      slug = filePath
-        .split('/markdown_files/')[1]
-        .replace(/\.md$/, '');
-    } else {
-      // 如果路径不包含预期格式，提取文件名作为备用
-      slug = filePath
-        .split('/').pop() || ''
-        .replace(/\.md$/, '');
-    }
-
-    if (!frontmatter.title || !frontmatter.date) {
-      console.warn(`Skipping ${filePath} due to missing title or date in frontmatter.`);
-      continue;
-    }
+    // 返回硬编码的文章数据
+    console.log(`[articles.ts] 返回硬编码的 ${HARDCODED_ARTICLES.length} 篇文章`);
     
-    console.log(`[articles.ts] Processing article: '${frontmatter.title}', Date value: '${frontmatter.date}', Date type: ${typeof frontmatter.date}`);
-
-    // Date Handling
-    let dateForInterface: string = '';
-    let formattedDateForDisplay: string = 'Invalid Date';
-
-    if (typeof frontmatter.date === 'string' && frontmatter.date.trim() !== '') {
-      dateForInterface = frontmatter.date;
-      try {
-        const parsedDate = parseISO(dateForInterface);
-        formattedDateForDisplay = format(parsedDate, 'yyyy-MM-dd');
-      } catch (e) {
-        console.error(`[articles.ts] Error parsing date string '${dateForInterface}' for article '${frontmatter.title}':`, e);
-      }
-    } else if (frontmatter.date instanceof Date && !isNaN(frontmatter.date.getTime())) {
-      const dateObj = frontmatter.date;
-      dateForInterface = dateObj.toISOString(); // Store as ISO string
-      try {
-        formattedDateForDisplay = format(dateObj, 'yyyy-MM-dd');
-      } catch (e) {
-        console.error(`[articles.ts] Error formatting pre-parsed Date for article '${frontmatter.title}':`, e);
-      }
-    } else {
-      console.warn(`[articles.ts] Invalid or missing date for article '${frontmatter.title}': Value: `, frontmatter.date);
-      dateForInterface = new Date(0).toISOString(); // Default to epoch ISO string
-    }
-
-    // Category Handling
-    let articleCategories: Category[] = [];
-    const fmCategory = frontmatter.category || frontmatter.categories;
-    if (typeof fmCategory === 'string' && fmCategory.trim() !== '') {
-      const slug = generateSlug(fmCategory);
-      articleCategories = [{ id: slug, name: fmCategory, slug, description: '', article_count:0 }];
-    } else if (Array.isArray(fmCategory)) {
-      articleCategories = fmCategory
-        .filter(cat => typeof cat === 'string' && cat.trim() !== '')
-        .map(catName => {
-          const slug = generateSlug(catName);
-          return { id: slug, name: catName, slug, description: '', article_count:0 };
-        });
-    }
-
-    const article: StaticArticle = {
-      slug,
-      title: frontmatter.title || 'Untitled Article',
-      excerpt: frontmatter.excerpt || frontmatter.description || '', // Prioritize excerpt, then description
-      date: dateForInterface,
-      tags: Array.isArray(frontmatter.tags) ? frontmatter.tags.filter((tag: any) => typeof tag === 'string') : [],
-      content: markdownContent || '',
-      categories: articleCategories,
-      formattedDate: formattedDateForDisplay,
-    };
-
-    articles.push(article);
-  }
-
-  // 按日期降序排序
-  const sortedArticles = articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  console.log(`[articles.ts] getArticles successfully processed ${sortedArticles.length} articles.`);
-  return sortedArticles;
+    // 按日期降序排序
+    const sortedArticles = [...HARDCODED_ARTICLES].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    return sortedArticles;
   } catch (error) {
-    console.error('[articles.ts] Error in getArticles:', error, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-    throw error; // Re-throw the error to be caught by the caller if necessary
+    console.error('[articles.ts] Error in getArticles:', error);
+    return []; // 出错时返回空数组
   }
 }
 
 export async function getArticleBySlug(slug: string): Promise<StaticArticle | undefined> {
-  const articles = await getArticles();
-  return articles.find(article => article.slug === slug);
+  return HARDCODED_ARTICLES.find(article => article.slug === slug);
 }
-
-// 保留一个 ARTICES 变量以供 CategoryList.tsx 等可能直接引用的地方使用
-// 这将在首次调用 getArticles 后被填充
-// 注意：这可能不是最佳实践，理想情况下，所有组件都应异步获取文章
-let LOADED_ARTICLES: StaticArticle[] = [];
 
 export async function ensureArticlesLoaded(): Promise<StaticArticle[]> {
   console.log('[articles.ts] ensureArticlesLoaded called. LOADED_ARTICLES length:', LOADED_ARTICLES.length);
@@ -225,17 +351,14 @@ export async function ensureArticlesLoaded(): Promise<StaticArticle[]> {
   return LOADED_ARTICLES;
 }
 
-// 为 CategoryList.tsx 等组件提供同步访问的 ARTICLES (在初次加载后)
-// 考虑修改 CategoryList.tsx 以异步获取数据，从而移除此变量
 export const ARTICLES_SYNC = () => {
-    console.log('[articles.ts] ARTICLES_SYNC called. LOADED_ARTICLES length:', LOADED_ARTICLES.length);
-    if (LOADED_ARTICLES.length === 0) {
-        console.warn("ARTICLES_SYNC accessed before articles are loaded. Call ensureArticlesLoaded() first or use getArticles() for async access.");
-        // 返回空数组或抛出错误，取决于期望行为
-        // 为了减少破坏性更改，暂时返回空数组
-        return [];
-    }
-    return LOADED_ARTICLES;
+  console.log('[articles.ts] ARTICLES_SYNC called. LOADED_ARTICLES length:', LOADED_ARTICLES.length);
+  if (LOADED_ARTICLES.length === 0) {
+    console.warn("ARTICLES_SYNC accessed before articles are loaded. Call ensureArticlesLoaded() first or use getArticles() for async access.");
+    // 因为我们有硬编码的文章，所以可以直接返回它们
+    return HARDCODED_ARTICLES;
+  }
+  return LOADED_ARTICLES;
 };
 
 // 示例：在应用启动时或相关组件挂载时预加载文章
