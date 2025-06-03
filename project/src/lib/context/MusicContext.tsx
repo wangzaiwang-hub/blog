@@ -63,7 +63,7 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         id: 'cloud-bg-music',
         title: 'Background Music',
         artist: 'Cloud',
-        url: '/bg.mp3', // Ensure this file exists in your public folder
+        url: '/markdown_files/resource/bg.mp3', // Ensure this file exists in your public folder
         cover_url: '',
       };
       setPlaylist([cloudMusicTrack]);

@@ -44,11 +44,11 @@ const projects: Project[] = [
   },
   {
     id: '2',
-    name: '在线音乐播放器',
-    description: '支持在线播放和收藏音乐，并提供个性化推荐',
-    url: '#',
-    githubUrl: 'https://github.com',
-    tech: ['Vue', 'Node.js', 'MongoDB']
+    name: '音量调到49',
+    description: '根据reddit上的最烂音量设计大赛，我做了一个音量调到49的网站，一个恶搞不能放松的游戏',
+    url: 'https://49game.wctw.fun/',
+    githubUrl: 'https://github.com/wangzaiwang-hub/game',
+    tech: ['恶搞', '游戏', 'React']
   },
   {
     id: '3',

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AuthProvider } from './lib/context/AuthContext';
 import { MusicProvider } from './lib/context/MusicContext';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
@@ -13,6 +14,7 @@ function App() {
       <AuthProvider>
         <MusicProvider>
           <Router>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/articles" element={<ArticlesPage />} />

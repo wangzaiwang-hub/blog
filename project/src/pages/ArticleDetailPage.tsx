@@ -46,14 +46,6 @@ const ArticleDetailPage: React.FC = () => {
     <Layout>
       <article className="min-h-screen bg-gradient-to-b from-desert-100 to-sand-100 dark:from-gray-800 dark:to-gray-900 py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="mb-6">
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-terracotta-600 dark:text-terracotta-400 hover:text-terracotta-700 dark:hover:text-terracotta-300"
-            >
-              ← 返回文章列表
-            </Link>
-          </div>
           <header className="mb-8">
             <h1 className="text-4xl font-title text-terracotta-600 dark:text-terracotta-400 mb-4">
               {article.title}
@@ -78,6 +70,15 @@ const ArticleDetailPage: React.FC = () => {
             className="article-content prose prose-sand dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
+          
+          <div className="flex justify-center mt-12 mb-8">
+            <Link 
+              to="/articles" 
+              className="inline-flex items-center bg-terracotta-500 hover:bg-terracotta-600 text-white px-6 py-3 rounded-md transition-colors duration-200 text-lg font-medium"
+            >
+              ← 返回文章列表
+            </Link>
+          </div>
         </div>
       </article>
     </Layout>

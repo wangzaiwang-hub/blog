@@ -49,7 +49,7 @@ const MusicAvatar: React.FC = () => {
         aria-label={isPlaying ? '暂停音乐' : '播放音乐'}
       >
         <img
-          src="/me.webp"
+          src="/markdown_files/resource/me.webp"
           alt="头像"
           className="w-full h-full object-cover"
           draggable={false}
