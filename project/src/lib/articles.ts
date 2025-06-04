@@ -162,7 +162,8 @@ function hello() {
 ## 项目简介
 
 WE Tools 是我开发的一个集合了全球免费高效工具的平台。这个项目旨在为用户提供一个一站式的工具集合，涵盖办公效率、设计创意、开发编程等多个领域。
-
+![wetools主页](/markdown_files/resource/wetools1.webp)
+![wetools主页](/markdown_files/resource/wetools2.webp)
 ## 核心特点
 
 - **多样化工具集**：目前收集了超过 100 种不同类型的工具
