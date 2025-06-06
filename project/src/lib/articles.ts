@@ -147,6 +147,46 @@ function hello() {
 
 这次迁移使博客系统变得更加简单和高效。`
   },
+ {
+    slug: "49game-introduction",
+    title: "根据reddit上最烂音量控制帖子做的一个反人类调音量游戏",
+    excerpt: "目前只做了前几关，后面有时间再做，游戏地址：https://49game.wctw.fun",
+    date: "2025-05-07",
+    formattedDate: "2025-05-07",
+    tags: ["reddit", "游戏", "开发"],
+    categories: [
+      { id: "project", name: "项目", slug: "project", description: "", article_count: 1 }
+    ],
+    content: `# cozi和Windsurf半个小时做的反人类调音量游戏
+
+## 项目简介
+
+我在reddit上看到一个帖子，说音量控制是最烂的控制，这是很早之前的帖子比赛，看的我笑的合不拢嘴，被大佬们的奇葩想法折服，但是时间久远很多都只剩下了一张动图，我就想用AI技术复刻这些有意思的项目做成游戏来娱乐一下，于是我就做了这个反人类调音量游戏。
+![49game主页](/markdown_files/resource/49game1.webp)
+![49game主页](/markdown_files/resource/49game2.webp)
+![49game主页](/markdown_files/resource/49game3.webp)
+## 游戏玩法
+
+游戏玩法很简单，就是根据提示来控制各种形式的音量调节器来调整音量到49，只有在各种反人类音量调节器中精确找到49才能过关，游戏难度会随着关卡的增加而增加，目前只做了前几关，后面有时间再做。
+## 技术实现
+
+项目的基层架构是让cozi生成的，本来把整体寄希望于cozi，但是它对游戏每一关的理解做的跟我的预期相差太远了，就把代码下载到本地用Windsurf对每一关的具体玩法进行细致的修改，但是依旧与reddit上大神的项目有些出入。
+
+## 体验地址
+
+体验地址：[49game](https://49game.wctw.fun)
+
+## 未来规划
+
+未来，我计划为49game添加更多功能：
+
+- 添加更多关卡
+- 添加更多音量调节器
+- 添加更多游戏元素
+- 添加更多游戏场景
+
+欢迎访问 [49game](https://49game.wctw.fun) 体验更多有趣的游戏！`
+  },
   {
     slug: "wetools-introduction",
     title: "WETools: 效率与创意的数字工具集",
@@ -209,6 +249,7 @@ const backendStack = {
 
 欢迎访问 [WE Tools](https://wetools.wctw.fun) 探索更多实用工具！`
   },
+ 
   {
     slug: "tomydear-onlinestudy-website",
     title: "给我女朋友做的一个在线学习网站",

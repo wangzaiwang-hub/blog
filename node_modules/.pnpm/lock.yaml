@@ -1,0 +1,52 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@stagewise/toolbar-react':
+        specifier: ^0.4.0
+        version: 0.4.0(@types/react@19.1.6)(react@19.1.0)
+
+packages:
+
+  '@stagewise/toolbar-react@0.4.0':
+    resolution: {integrity: sha512-N7rgFFp1PY4ADzi39UTi8ZJ1SsFti3OfcmSqgrB1gf+YwfWUz+dfgLgAjocFfmwiVWiNf+UJakop+y++yG6V0Q==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      react: '>=18.0.0'
+
+  '@stagewise/toolbar@0.4.0':
+    resolution: {integrity: sha512-d63Z7D4yOD2BQ/UbuCHp5BuJLkEX+r6KKslX3J2f/KdK9EHh8K1HqOE0ynHp1XWEaxTKUSvU93gpVW2V+ycS4g==}
+
+  '@types/react@19.1.6':
+    resolution: {integrity: sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==}
+
+  csstype@3.1.3:
+    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  react@19.1.0:
+    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
+    engines: {node: '>=0.10.0'}
+
+snapshots:
+
+  '@stagewise/toolbar-react@0.4.0(@types/react@19.1.6)(react@19.1.0)':
+    dependencies:
+      '@stagewise/toolbar': 0.4.0
+      '@types/react': 19.1.6
+      react: 19.1.0
+
+  '@stagewise/toolbar@0.4.0': {}
+
+  '@types/react@19.1.6':
+    dependencies:
+      csstype: 3.1.3
+
+  csstype@3.1.3: {}
+
+  react@19.1.0: {}

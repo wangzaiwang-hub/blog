@@ -15,7 +15,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // 由于我们现在使用静态文件系统，这里可以设置一个默认用户或者 null
   const user = {
-    username: 'Desert Eagle',
+    username: '沙漠一只雕',
     email: 'desert@example.com'
   };
 
