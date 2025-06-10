@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
                     查看全部 <ChevronRight size={16} />
                   </Link>
                 </div>
-                <ArticleList />
+                <ArticleList limit={7} />
               </div>
             </main>
           </div>

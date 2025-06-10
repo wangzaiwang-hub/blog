@@ -71,25 +71,25 @@ const Footer: React.FC = () => {
                 to="/articles?category=tech" 
                 className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
               >
-                技术
+                项目
               </Link>
               <Link 
                 to="/articles?category=life" 
                 className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
               >
-                生活
+                技术
               </Link>
               <Link 
                 to="/articles?category=coding" 
                 className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
               >
-                编程
+                设计
               </Link>
               <Link 
                 to="/articles?category=design" 
                 className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
               >
-                设计
+                博客
               </Link>
             </div>
           </div>

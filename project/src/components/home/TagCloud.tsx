@@ -52,10 +52,10 @@ const projects: Project[] = [
   },
   {
     id: '3',
-    name: '智能任务管理',
-    description: '基于AI的任务管理应用，可智能分析和安排任务优先级',
-    url: '#',
-    tech: ['React Native', 'Express', 'TensorFlow.js']
+    name: '个人简历',
+    description: '用markdown做一份个人简历，样式主题可自选',
+    githubUrl: 'https://github.com/wangzaiwang-hub/resume',
+    tech: ['Markdown', 'Tailwind CSS', 'React']
   }
 ];
 

@@ -68,7 +68,7 @@ const ArticlesPage: React.FC = () => {
         >
           <CategoryList />
           
-          <ArticleList />
+          <ArticleList paginated articlesPerPage={6} />
         </motion.div>
       </div>
     </Layout>

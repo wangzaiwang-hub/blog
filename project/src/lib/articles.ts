@@ -330,6 +330,41 @@ const backendStack = {
 
 体验地址：[studyonline](https://studyonline.wctw.fun)
 `
+  },
+  {
+    slug: "resume",
+    title: "最近参考大神阿杆的开源项目做了一份个人简历，适合程序员",
+    excerpt: "用markdown做一份个人简历，样式美观，与众不同",
+    date: "2025-06-10",
+    formattedDate: "2025-06-10",
+    tags: ["markdown", "简历", "美观"],
+    categories: [
+      { id: "project", name: "项目", slug: "project", description: "", article_count: 1 }
+    ],
+    content: `# 个人简历
+
+## 项目简介
+
+用markdown做一份个人简历，样式自定义，拒绝大众化
+![resume主页](/markdown_files/resource/resume1.webp)
+![resume主页](/markdown_files/resource/resume2.webp)
+## 核心特点
+
+- **markdown语法**：使用markdown语法，快捷方便
+- **自定义修改**：自定义修改，拒绝大众化
+- **typora制作**：使用typora的主题模板，美观大方
+
+## 项目参考
+
+这个项目参考了大神阿杆的markdown简历项目，但是对其中做了部分修改，可以插入项目的二维码，方便面试官查看个人项目。
+
+原项目地址：[阿杆的Markdown简历模板](https://github.com/stick-i/markdown-resume-template)
+修改后项目地址：[我的Markdown简历模板](https://github.com/wangzaiwang-hub/resume)
+## 寄语
+
+希望大家都能做一份美观的简历，找到一份满意的工作，年薪百万无上限，实现自己的价值，实现自己的梦想。
+
+`
   }
 ];
 
