@@ -404,6 +404,8 @@ let LOADED_ARTICLES: StaticArticle[] = [];
 export async function getArticles(): Promise<StaticArticle[]> {
   console.log('[articles.ts] getArticles called');
   try {
+    // 打印整个数组以供调试
+    console.log('[articles.ts] HARDCODED_ARTICLES:', HARDCODED_ARTICLES);
     // 返回硬编码的文章数据
     console.log(`[articles.ts] 返回硬编码的 ${HARDCODED_ARTICLES.length} 篇文章`);
     
