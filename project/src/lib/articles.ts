@@ -446,4 +446,25 @@ export const ARTICLES_SYNC = () => {
 // (例如在 main.tsx 或 App.tsx)
 // ensureArticlesLoaded().then(() => {
 //   console.log("Articles preloaded for synchronous access if needed.");
-// }); 
+// });
+
+export function getAllCategoriesSync(): Category[] {
+  const categoryMap = new Map<string, Category>();
+
+  HARDCODED_ARTICLES.forEach(article => {
+    if (article.categories) {
+      article.categories.forEach(category => {
+        if (category) {
+          const existing = categoryMap.get(category.id);
+          if (existing) {
+            existing.article_count = (existing.article_count || 0) + 1;
+          } else {
+            categoryMap.set(category.id, { ...category, article_count: 1 });
+          }
+        }
+      });
+    }
+  });
+
+  return Array.from(categoryMap.values());
+} 

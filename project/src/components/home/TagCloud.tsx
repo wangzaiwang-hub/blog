@@ -54,6 +54,7 @@ const projects: Project[] = [
     id: '3',
     name: '个人简历',
     description: '用markdown做一份个人简历，样式主题可自选',
+    url: '',
     githubUrl: 'https://github.com/wangzaiwang-hub/resume',
     tech: ['Markdown', 'Tailwind CSS', 'React']
   }

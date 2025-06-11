@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Mail, Heart } from 'lucide-react';
+import { getAllCategoriesSync } from '../../lib/articles';
 
 const Footer: React.FC = () => {
+  const categories = getAllCategoriesSync();
+
   return (
     <footer className="bg-sand-200 dark:bg-gray-800 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,30 +70,15 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">分类</h3>
             <div className="flex flex-wrap gap-2">
-              <Link 
-                to="/articles?category=tech" 
-                className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
-              >
-                项目
-              </Link>
-              <Link 
-                to="/articles?category=life" 
-                className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
-              >
-                技术
-              </Link>
-              <Link 
-                to="/articles?category=coding" 
-                className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
-              >
-                设计
-              </Link>
-              <Link 
-                to="/articles?category=design" 
-                className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
-              >
-                博客
-              </Link>
+              {categories.map(category => (
+                <Link 
+                  key={category.id}
+                  to={`/articles?category=${category.slug}`}
+                  className="px-3 py-1 bg-sand-300 dark:bg-gray-700 rounded-full text-sm text-gray-700 dark:text-gray-300 hover:bg-terracotta-100 dark:hover:bg-terracotta-900"
+                >
+                  {category.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
