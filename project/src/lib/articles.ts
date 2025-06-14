@@ -365,6 +365,60 @@ const backendStack = {
 希望大家都能做一份美观的简历，找到一份满意的工作，年薪百万无上限，实现自己的价值，实现自己的梦想。
 
 `
+  },
+  {
+    slug: "super-encryption",
+    title: "一个黑客风格的文件加密工具",
+    excerpt: "一个外观酷炫、具有'黑客'风格界面的虚假文件加密工具",
+    date: "2025-06-14",
+    formattedDate: "2025-06-14",
+    tags: ["加密", "黑客", "美观"],
+    categories: [
+      { id: "project", name: "项目", slug: "project", description: "", article_count: 1 }
+    ],
+    content: `# 一个黑客风格的文件加密工具
+
+## 🚀项目简介
+一个外观酷炫、具有"黑客"风格界面的虚假文件加密工具。它并不会对文件内容进行实际的加密，而是通过一种独特的方式修改文件的后缀名，同时提供了配套的"解密"功能来恢复原始文件名。
+
+**主界面:**
+![主界面](https://github.com/user-attachments/assets/1ac33b3e-432a-4005-93e5-3919f53598df)
+
+
+**文件处理界面:**
+![文件处理界面](https://github.com/user-attachments/assets/f624203d-6c79-4df7-b79b-f61ec890553f)
+## 📚项目目的
+
+- **黑客风格**：外观酷炫、具有"黑客"风格界面
+- **一键加密解密**：代码流虚假加密解密，实际对文件内容无任何影响，进修改后缀名，增加迷惑性，对文件内容无任何影响
+- **防某些人的copy**：虚假加密，一切都是为了迷惑人，有效防止某些人copy自己的文件  
+
+## ✨功能亮点
+
+- **赛博朋克/黑客风格界面**: 整个应用采用暗色主题和亮绿色文本，模拟了经典的终端（Terminal）外观。
+- **动态背景**: 主界面和文件选择界面都带有动态滚动的"协议/日志"文本，营造出专业和神秘的氛围。
+- **自定义窗口**: 完全移除了原生窗口边框，使用纯 HTML/CSS 打造了与主题完美融合的自定义标题栏和窗口控制按钮（最小化、最大化、关闭）。
+- **"伪"加密/解密**:.txt）通过 Base64 编码，重命名文件为 .sCrypt 的格式。
+    - **解密**: 能够智能识别 .sCrypt 文件，并将其中的后缀名解码，完美恢复原始文件。
+- **安全的文件操作**: 无论是加密还是解密，程序都会将处理后的文件保存到用户选择的新位置，绝不修改原始文件。
+- **流畅的动画效果**: 所有的界面切换、文件列表加载都带有平滑的过渡和动画效果。
+- **跨平台打包**: 使用 Electron 和 electron-builder 构建，可以轻松打包成 Windows .exe 安装程序。
+## 🛠️ 技术栈
+
+- **框架**: [Electron](https://www.electronjs.org/)
+- **前端**: HTML5, CSS3, JavaScript (ES6+)
+- **后端/环境**: [Node.js](https://nodejs.org/)
+- **打包工具**: [electron-builder](https://www.electron.build/)
+---
+
+## 👤项目地址
+
+github项目地址：[Super Encryption](https://github.com/wangzaiwang-hub/super-encryption)
+软件下载地址：[Super Encryption.exe](https://github.com/wangzaiwang-hub/Super-Encryption/releases/download/V1.0/SuperJM.Setup.1.0.0.exe)
+
+---
+*该项目仅供学习和娱乐，请勿用于非法用途。* 
+`
   }
 ];
 
