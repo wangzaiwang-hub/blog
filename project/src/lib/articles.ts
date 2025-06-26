@@ -444,23 +444,23 @@ github项目地址：[Super Encryption](https://github.com/wangzaiwang-hub/super
 
 ## 📚 软件截图
 **主页截图：**
-![主页截图](/markdown_files/resource/quickpeektv2.png)
+![主页截图](/markdown_files/resource/quickpeektv2.webp)
 
 **设置截图：**
-![设置截图](/markdown_files/resource/quickpeektv3.png)
+![设置截图](/markdown_files/resource/quickpeektv3.webp)
 
 **使用预览：**
-![使用预览](/markdown_files/resource/quickpeektv4.png)
+![使用预览](/markdown_files/resource/quickpeektv4.webp)
 
 ## 🔨 使用方法
 - **logo功能**：点击一下是置顶弹窗，弹窗显示在所有软件界面上层
-![logo功能](/markdown_files/resource/quickpeektv5.png)
+![logo功能](/markdown_files/resource/quickpeektv5.webp)
 
 - **私房按钮**：这其实是设置按钮，输入视频网站可以智能去除广告及其他不相关元素，只留下视频素材
-![私房按钮](/markdown_files/resource/quickpeektv6.png)
+![私房按钮](/markdown_files/resource/quickpeektv6.webp)
 
 - **如何关闭**：我希望这是个关不掉的广告，可以一直看直播和视频，所以只能通过下方右击才能关闭软件
-![如何关闭](/markdown_files/resource/quickpeektv7.png)
+![如何关闭](/markdown_files/resource/quickpeektv7.webp)
 
 - **注意**：软件默认开启声音及视频自动播放，使用之前先注意自己的环境
 
