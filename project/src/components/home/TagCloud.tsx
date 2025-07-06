@@ -44,19 +44,19 @@ const projects: Project[] = [
   },
   {
     id: '2',
-    name: '音量调到49',
-    description: '根据reddit上的最烂音量设计大赛，我做了一个音量调到49的网站，一个恶搞不能放松的游戏',
-    url: 'https://49game.wctw.fun/',
-    githubUrl: 'https://github.com/wangzaiwang-hub/game',
-    tech: ['恶搞', '游戏', 'React']
+    name: 'Music Wallpaper',
+    description: '一款结合了动态/静态壁纸、音乐播放和白噪音功能于一体的小组件桌面美化应用',
+    url: 'https://musicwallpaper.wctw.fun/',
+    githubUrl: 'https://github.com/wangzaiwang-hub/MusicWallpaper',
+    tech: ['小组件', '桌面美化', '休闲']
   },
   {
     id: '3',
-    name: '个人简历',
-    description: '用markdown做一份个人简历，样式主题可自选',
-    url: '',
-    githubUrl: 'https://github.com/wangzaiwang-hub/resume',
-    tech: ['Markdown', 'Tailwind CSS', 'React']
+    name: 'QuickPeekTV',
+    description: '一款终极的摸鱼工具，它将自己伪装成一个无害的弹窗广告，但内部却是一个功能齐全的迷你浏览器。让你可以在"百忙"之中，光明正大地处理任何"紧急"的网页任务。',
+    url: 'https://github.com/wangzaiwang-hub/QuickPeekTV/releases/tag/V1.1',
+    githubUrl: 'https://github.com/wangzaiwang-hub/QuickPeekTV',
+    tech: ['弹窗广告', '迷你浏览器', '摸鱼']
   }
 ];
 
@@ -91,13 +91,16 @@ const TagCloud: React.FC = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden relative"
               whileHover={{ y: -5 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
             >
               <div className="p-4">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  {project.name}
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
+                    <span className="absolute inset-0" aria-hidden="true" />
+                    {project.name}
+                  </a>
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
                   {project.description}
@@ -112,7 +115,7 @@ const TagCloud: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 relative z-10">
                   <a 
                     href={project.url} 
                     target="_blank" 
